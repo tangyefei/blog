@@ -85,10 +85,10 @@ body {
   line-height: 2em;
 }
 
-.home-page .article-container .article h2 {
+.home-page .article-container .article h3 {
   color: #1a89e1;
 }
-.home-page .article-container .article h2:hover {
+.home-page .article-container .article h3:hover {
   cursor: pointer;
   color: #0d90f7;
 }
