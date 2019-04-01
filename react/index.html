@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+      <div id="app"></div>
+    
+    <script type="text/babel">
+    const menuInfo = [
+      { name: 'about', text: '关于我'},
+      { name: 'tech', text: '技术'}, 
+      { name: 'psy', text: '心理'}, 
+      { name: 'book', text: '读书',}, 
+      { name: 'travel', text: '旅行', }
+    ];
+    const articles = [{
+      title: '[原创]价值判断怎么破坏你的生活?',
+      created: '2019-03-26',
+      tags: '心理,社交',
+      overview: '为什么有的人很难按照自己所想去生活，并且在社交生活中表现的难以合群。'
+    }]
+
+    const MenuList = menuInfo.map((menu) =>
+      <li key={menu.name}><a href="#">{menu.text}</a></li>
+    );
+
+    function ArticleList(props) {
+      const articles = props.articles;
+      const articleItems = articles.map((artc, index) =>
+        <div className="article" key={index}>
+          <h3>{artc.title}</h3>
+          <p className="meta"><span className="created-date">{artc.created}</span><span className="tag">{artc.tags}</span></p>
+          <p className="overview">{artc.overview}</p>
+        </div>
+      );
+      return (
+        <div className="article-container">{articleItems}</div>
+      );
+    }
+
+    function App(props) {
+      return (
+        <div className="home-page">
+          <div className="intro">
+            <span className="avatar"></span>
+            <p><span>“</span> 蔑视命运。如果你确定了自己的标准，你对自己的生活会有大得多的控制。<span>”</span> &nbsp;&nbsp;&nbsp;《黑天鹅》</p>
+            <h3>Yefei 前端工程师</h3>
+          </div>
+          <ul className="menus">
+              {MenuList}
+          </ul>
+          <ArticleList articles={articles} />,
+          <footer>
+              © Copyright 2019 Yefei Tang
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.render(
+      <App/>,
+      document.getElementById('app')
+    );
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+  </body>
+</html>
