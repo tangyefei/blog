@@ -49,6 +49,8 @@ export default {
       console.log(m.name);
       if(m.name == 'about') {
         this.$router.push({name: 'about'})
+      } else if(m.name == 'tech') {
+        window.open('http://tangyefei.cn:81/', '_blank');
       } else {
         this.$router.push({name: 'home', query: {type: m.name}})
       }
