@@ -14,6 +14,7 @@ Vue.use(VueRouter)
 const Home = resolve => require(['./components/Home.vue'], resolve);
 const Article = resolve => require(['./components/Article.vue'], resolve);
 const About = resolve => require(['./components/About.vue'], resolve);
+const Books = resolve => require(['./components/Books.vue'], resolve);
 
 const router = new VueRouter({
   routes: [{
@@ -22,6 +23,8 @@ const router = new VueRouter({
     name: 'article', path: '/article/:id', component: Article
   },{
     name: 'about', path: '/about', component: About
+  },{
+    name: 'books', path: '/books', component: Books
   }]
 })
 
